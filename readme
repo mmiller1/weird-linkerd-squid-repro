@@ -8,7 +8,7 @@ $ kubectl apply -f curl-2.6.1.yaml
 $ kubectl exec -ti $(kubectl get pods -n default | awk '/curl/ {print $1}') -n default -- sh -c 'https_proxy="http://squid.default:3128" curl https://www.google.com/ -o /dev/null -s -v'
 
 # deploy  curl w/ linkerd 2.7.0
-$ kubectl apply -f curl-2.6.1.yaml
+$ kubectl apply -f curl-2.7.0.yaml
 
 # rerun the same curl from above and observe a 403 from the squid proxy
 $ kubectl exec -ti $(kubectl get pods -n default | awk '/curl/ {print $1}') -n default -- sh -c 'https_proxy="http://squid.default:3128" curl https://www.google.com/ -o /dev/null -s -v'
